@@ -50,6 +50,9 @@ p {
 label {
   color: var(--neutralForeground1Rest);
 }
+label {
+  color: var(--neutralForeground1Rest);
+}
 .home-icons {
   width: -webkit-fit-content;
   width: -moz-fit-content;
