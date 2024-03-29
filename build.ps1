@@ -10,7 +10,7 @@ param (
     [string]$PackageSuffix,
     [string]$Branch,
     [string]$CommitSHA,
-    [string]$BuildBranchCommit = '5295c6e0d2ae7357fccf01e48c56b768b192f022', #DevSkim: ignore DS173237. Not a secret/token. It is a commit hash.
+    [string]$BuildBranchCommit = '6b5e48d529a9868ea9aa9b6b331aac66dfa7cbd9', #DevSkim: ignore DS173237. Not a secret/token. It is a commit hash.
     [string]$VerifyMicrosoftPackageVersion = $null
 )
 
@@ -29,8 +29,12 @@ if (-not (Test-Path "$PSScriptRoot/build")) {
     New-Item -Path "$PSScriptRoot/build" -ItemType "directory"
 }
 
-Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/NuGet/ServerCommon/$BuildBranchCommit/build/init.ps1" -OutFile "$PSScriptRoot/build/init.ps1"
-. "$PSScriptRoot/build/init.ps1" -BuildBranchCommit $BuildBranchCommit
+$initScript = "$PSScriptRoot/build/init.ps1"
+if (!$env:UseExistingBuildTools -or !(Test-Path $initScript)) {
+    Write-Host "Fetching $initScript"
+    Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/NuGet/ServerCommon/$BuildBranchCommit/build/init.ps1" -OutFile $initScript
+}
+. $initScript -BuildBranchCommit $BuildBranchCommit
 
 Function Clean-Tests {
     [CmdletBinding()]
