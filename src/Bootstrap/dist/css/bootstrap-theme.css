@@ -2275,7 +2275,7 @@ p.frameworktableinfo-text {
   margin: 0 !important;
 }
 .page-list-packages .frameworkfilters-info {
-  color: #333;
+  color: var(--neutralForeground1Rest);
   text-decoration: none;
 }
 @media (max-width: 992px) {
@@ -2571,7 +2571,7 @@ p.frameworktableinfo-text {
 .page-list-packages .tooltip-block {
   position: relative;
   display: inline-block;
-  color: #333;
+  color: var(--neutralForeground1Rest);
 }
 .page-list-packages .tooltip-block .popover-content {
   display: block;
