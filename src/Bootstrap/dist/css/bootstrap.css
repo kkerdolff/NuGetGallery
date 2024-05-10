@@ -759,7 +759,7 @@ kbd {
   padding: 2px 4px;
   font-size: 90%;
   color: var(--neutralForeground1Rest);
-  background-color: var(--pre-bg);
+  background-color: var(--neutralBackground1Rest);
   border-radius: 0px;
   -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -780,7 +780,7 @@ pre {
   color: var(--neutralForeground2Rest);
   word-break: break-all;
   word-wrap: break-word;
-  background-color: var(--pre-bg);
+  background-color: var(--neutralBackground1Rest);
   border: 2px solid var(--neutralStroke1Rest);
   border-radius: 4px;
 }
@@ -4816,24 +4816,28 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   display: inline-block;
   padding: 5px 14px;
   font-size: 20px;
-  color: #666666;
+  color: var(--neutralForeground2Rest);
 }
 .pager li > a,
 .pager li > span {
-  color: #337ab7;
+  color: var(--neutralForeground2Rest);
+}
+.pager li > a:hover,
+.pager li > span:hover {
+  color: var(--neutralForeground2Hover);
 }
 .pager .next {
   border-left-style: solid;
   border-left-width: 1px;
-  border-left-color: #337ab7;
+  border-left-color: var(--neutralStrokeAccessibleRest);
 }
 .pager .disabled > a,
 .pager .disabled > a:hover,
 .pager .disabled > a:focus,
 .pager .disabled > span {
-  color: #666666;
+  color: var(--neutralForegroundDisabledRest);
   cursor: not-allowed;
-  background-color: #fff;
+  background-color: transparent;
 }
 .label {
   display: inline;
